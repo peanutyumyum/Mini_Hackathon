@@ -5,7 +5,7 @@
 
 ## Summary
 
-> This Web service is indepent book store platform <br>
+> This Web service is platform service for indepent book store <br>
 > You can looking for indepent book store location at your posiotion <br>
 > Add favorite author and receive their information <br>
 > You can see a score about store 
