@@ -1,6 +1,6 @@
 ## <h1 align="center">Mini Hankathone Idea for LikeLion</h1>
   
-> Platform service for Independent book store - Dongneckaekbang 📖
+> Platform service for Independent book store - Dongneckaekbang 📖 <br>
 > LikeLion at HYU-ERICA, 8th 🦁
 
 ## Summary
