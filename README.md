@@ -13,6 +13,14 @@
 ## Usage
 
 ```sh
+. lion/Scripts/activate
+```
+or
+```sh
+lion/bin/activate
+```
+and
+```sh
 python manage.py runserver
 ```
 
