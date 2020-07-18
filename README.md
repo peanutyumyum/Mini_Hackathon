@@ -1,7 +1,7 @@
-## <h1 align="center">Mini Hankathone Idea for LikeLion</h1>
+## <h1 align="center">Mini Hankathone Idea for LikeLion 8th</h1>
   
 > Platform service for Independent book store - Dongneckaekbang 📖 <br>
-> LikeLion at HYU-ERICA, 8th 🦁
+> LikeLion 8th at HYU,ERICA 🦁
 
 ## Summary
 
