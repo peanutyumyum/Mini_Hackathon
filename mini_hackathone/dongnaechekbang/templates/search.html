@@ -1,0 +1,33 @@
+<!-- {% load static %} -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SEARCH </title>
+
+    
+
+     <link rel='stylesheet' href="{% static 'search.css' %}" >
+
+
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div class='headbox'>
+        </div>
+        <div class='searchbox'>
+            <form action = " #" method='GET'>
+                <input class="input_box" type="text" name="query" value="{{query}}" placeholder="검색해보자">
+            </form> 
+    
+        </div>
+    </div>
+
+
+</body>
+</html>
