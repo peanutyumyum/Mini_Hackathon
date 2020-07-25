@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from dongnaechekbang import views
+import dongnaechekbang.views
+
+app_name = 'dongnaechekbang'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('location/', views.location, name="location"),
+    path('location/<int:city_id>', views.location_city_scale, name="location_city_scale"),
+    path('location/<int:bookstore_id>', views.location_bookstore, name="location_bookstore"),
 ]

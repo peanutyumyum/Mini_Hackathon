@@ -9,7 +9,7 @@
 </head>
 <body>
     {% for bookstore_list in bookstore %}
-        <a href="{% url 'detail' bookstore_list.id %}">{{bookstore_list.city_address_of_bookstore}}</a>
+        <a href="{% url 'detail' bookstore_list.id %}">{{bookstore_list.name}}</a>
     {% endfor %}
 </body>
 </html>
