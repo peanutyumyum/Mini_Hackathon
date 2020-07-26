@@ -3,4 +3,6 @@ from django.shortcuts import render
 def search(request):
     return render (request, 'search.html')
 
+def result(request):
+    return render (request, 'result.html')
 # Create your views here.

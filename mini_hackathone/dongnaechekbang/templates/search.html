@@ -19,12 +19,17 @@
 
     <div class="container">
         <div class='headbox'>
+            <div class='logo'>
+                <a href="{% url 'search' %}"> 골목책방 </a>
+            </div>
+            <div class='homebox'>
+                <a href="{% url 'search' %}"> HoME </a>
+            </div>
         </div>
         <div class='searchbox'>
-            <form action = " #" method='GET'>
+            <form action = "#" method='GET'>
                 <input class="input_box" type="text" name="query" value="{{query}}" placeholder="검색해보자">
-            </form> 
-    
+            </form>
         </div>
     </div>
 

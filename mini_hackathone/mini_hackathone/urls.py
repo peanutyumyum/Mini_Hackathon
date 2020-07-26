@@ -19,5 +19,6 @@ import dongnaechekbang.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',dongnaechekbang.views.search, name='search' ),
+    path('search/',dongnaechekbang.views.search, name='search' ),
+    path('search/result/',dongnaechekbang.views.result, name='result'),
 ]
