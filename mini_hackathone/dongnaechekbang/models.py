@@ -8,7 +8,7 @@ class trait(models.Model):
 
 class city(models.Model):
     objects = models.Manager()
-    city = models.CharField(max_length=20, primary_key=True) # insert city name
+    city = models.CharField(max_length=50, primary_key=True) # insert city name
 
 class bookstore(models.Model):
     objects = models.Manager()
@@ -18,10 +18,10 @@ class bookstore(models.Model):
     trait = models.ForeignKey(trait, on_delete=models.CASCADE) # trait of bookstore
     bookstore_information = models.TextField() # summary about bookstore
     
-class evaluation_about_bookstore(models.Manager):
+class evaluation_about_bookstore(models.Model):
     objects = models.Manager()
     evaluation = models.IntegerField(default=0) # about evaluations, mark with number 1 to 5
-    comment_about_bookstore_with_text_ = models.TextField() # utility of comments, user can evaluate with text
+    comment_about_bookstore_with_text = models.TextField() # utility of comments, user can evaluate with text
     #comment_about_bookstore_with_image = models.ImageField(upload_to="image", blank=True) # utility of comments, user can upload image
 
 
