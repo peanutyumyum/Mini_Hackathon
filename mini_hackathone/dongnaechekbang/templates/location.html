@@ -8,8 +8,8 @@
     <title>Independent Book Store</title>
 </head>
 <body>
-    {% for bookstore_list in bookstore %}
-        <a href="{% url 'location_city_scale' bookstore_list.id %}">{{bookstore_list.city_address_of_bookstore}}</a>
+    {% for bookstore_list in city %}
+        <a href="{% url 'location_city_scale' bookstore_list.id %}">{{bookstore_list.city}}</a>
     {% endfor %}
 </body>
 </html>

@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import bookstore, trait, evaluation_about_bookstore, informations, bookstore_event, city
+from .models import Bookstore, Trait, Evaluation_about_bookstore, Informations, Bookstore_event, City
 
 # Register your models here.
 
-admin.site.register(city)
-admin.site.register(bookstore),
-admin.site.register(trait),
-admin.site.register(informations),
-admin.site.register(evaluation_about_bookstore),
-admin.site.register(bookstore_event),
+admin.site.register(City)
+admin.site.register(Bookstore),
+admin.site.register(Trait),
+admin.site.register(Informations),
+admin.site.register(Evaluation_about_bookstore),
+admin.site.register(Bookstore_event),
