@@ -27,8 +27,8 @@
             </div>
         </div>
         <div class='searchbox'>
-            <form action = "#" method='GET'>
-                <input class="input_box" type="text" name="query" value="{{query}}" placeholder="검색해보자">
+            <form action = "{% url 'result' %}" method='GET'>
+                <input class="input_box" type="text" name="query" value="{{query}}" >
             </form>
         </div>
     </div>

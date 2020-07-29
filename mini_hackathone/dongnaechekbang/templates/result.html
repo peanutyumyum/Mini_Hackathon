@@ -21,7 +21,15 @@
          </div>
 
          <div class="contentbox">
-
+            <div class='searchresult'>
+                "{{query}}"에 대한 결과는 다음과 같습니다.
+                <br>
+                {% for post in bookstoreinfo %}
+                 <p> 서점 이름 : {{post.name}}</p>
+                 <p> 지역 : {{post.city_address_of_bookstore}} </p>
+                 <p> 상세주소: {{post.specific_address}} </p>
+                 {% endfor %}
+            </div>
          </div>
      </div>
 </body>
