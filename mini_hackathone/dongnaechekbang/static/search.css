@@ -18,9 +18,6 @@ a { color: rgb(255, 255, 255); }
     position: absolute;
     top: 25%;
     left: 29.5%;
-    background-color: rgb(167, 167, 167);
-    opacity: 0.85;
-    border-radius: 15px;
 }
 .logo{
     width: 300px;
@@ -39,6 +36,13 @@ a { color: rgb(255, 255, 255); }
     left: 3%;
 }
 .input_box{
-    width: 30px;
-    height: 30px;
+    width: 600px;
+    height: 48px;
+    opacity: 100;
+    background-color: rgba(192, 192, 192, 0.726);
+    opacity: 0.85;
+    border-radius: 15px;
+    font-size: 20px;
+    border: none;
+
 }

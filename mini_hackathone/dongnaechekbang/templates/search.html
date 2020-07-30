@@ -27,8 +27,16 @@
             </div>
         </div>
         <div class='searchbox'>
-            <form action = "{% url 'result' %}" method='GET'>
-                <input class="input_box" type="text" name="query" value="{{query}}" >
+            <form action = "{% url 'result' %}" method = 'GET' >
+                <select name = "type">
+                    <option value="all">전체 </option>
+                    <option value="name">서점</option>
+                    <option value="city">지역</option>
+                    <option value="info">서점 정보</option>
+                    <option value="trait">책 이름</option>
+                    
+                </select>
+                <input class="input_box" type="text" name="query" value="{{query}}" placeholder="검색어를 입력해주세요 !">
             </form>
         </div>
     </div>
