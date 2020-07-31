@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
-from .models import bookstore, city, trait
+from .models import Bookstore,Trait
 
 def search(request):
     return render (request, 'search.html')
