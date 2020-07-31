@@ -5,6 +5,7 @@ from django.conf import settings
 # Create your models here.
 
 class Blog(models.Model):
+    objects = models.Manager()
     title = models.CharField(max_length=100)
     text = models.TextField(max_length=2000)
     author = models.CharField(max_length=100)
@@ -20,6 +21,7 @@ class Blog(models.Model):
         self.save()
 
 class Comment(models.Model):
+    objects = models.Manager()
     post=models.ForeignKey(Blog, on_delete=models.CASCADE, null=True, related_name='comments')
     comment_date=models.DateTimeField(default=timezone.now)
     comment_contents=models.CharField(max_length=200)

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -17,10 +14,58 @@ def home(request):
     return render(request, 'home.html')
 
 def location(request):
-    return render(request, 'location.html')
+    bookstore_model = Bookstore.objects.all()
+    evaluation_about_bookstore_model = Evaluation_about_bookstore.objects.all()
+    informations_model = Informations.objects.all()
+    # insert model information to use in location.html
+
+    context = {
+        'bookstore' : bookstore_model, 
+        'evaluation_about_bookstore' : evaluation_about_bookstore_model, 
+        'informations' : informations_model, 
+    }
+    # declare variable
+    
+    return render(request, 'location.html', context)
+
+def location_bookstore(request, bookstore_id):
+
+    bookstore = get_object_or_404(Bookstore, pk=bookstore_id)
+    bookstore_model = Bookstore.objects.all()
+    # insert model information to use in location_bookstore.html
+
+    """ city_address_of_bookstore_을지로_model = bookstore_model.filter(city_address_of_bookstore='을지로')
+    city_address_of_bookstore_망원동_model = bookstore_model.filter(city_address_of_bookstore='망원동')
+    # to list city address of bookstore """
+    # 사용 안합니다
+
+    context = {
+        'bookstores' : bookstore, 
+        'bookstore' : bookstore_model
+    }
+    # declare variable
+
+    return render(request, 'location_bookstore.html', context)
 
 def search(request):
     return render(request, 'search.html')
+
+""" def result(request):
+    bookstoreinfo = Bookstore.objects.all()
+    query = request.GET.get('query','') 
+    search_type = request.GET.get('type','')
+    if query:
+        if search_type == 'all':
+            bookstoreinfo = bookstoreinfo.filter(Q(name__icontains=query)| Q(city_address_of_bookstore__city__icontains=query) | Q(trait__traits__icontains=query)|Q(bookstore_information__icontains=query))
+        elif search_type == 'name':
+            bookstoreinfo = bookstoreinfo.filter(name__icontains=query)
+        elif search_type == 'city':
+            bookstoreinfo = bookstoreinfo.filter(city_address_of_bookstore__city__icontains=query)
+        elif search_type == 'trait':
+            bookstoreinfo = bookstoreinfo.filter(trait__traits__icontains=query)
+        elif search_type == 'info':
+            bookstoreinfo = bookstoreinfo.filter(bookstore_information__icontains=query)
+    return render(request, 'result.html',{'bookstoreinfo':bookstoreinfo , 'query':query}) """
 
 class community(ListView):
     template_name = 'community.html'
@@ -57,7 +102,7 @@ class community_write(CreateView):
 
         return HttpResponseRedirect(self.request.POST.get('next','/'))
 
-def comment_write(request, post_pk):
+""" def comment_write(request, post_pk):
     if request.method == 'POST':
         post=get_object_or_404(Blog, pk=post_pk)
         content=request.POST.get('comment_contents')
@@ -66,56 +111,4 @@ def comment_write(request, post_pk):
         }
 
         Comment.objects.create(post=post, comment_write=writer,comment_contents=content)
-        return HttpResponseRedirect(reverse_lazy('community', context))
-
-
-def location(request):
-    bookstore_model = Bookstore.objects.all()
-    evaluation_about_bookstore_model = Evaluation_about_bookstore.objects.all()
-    informations_model = Informations.objects.all()
-    # insert model information to use in location.html
-
-    context = {
-        'bookstore' : bookstore_model, 
-        'evaluation_about_bookstore' : evaluation_about_bookstore_model, 
-        'informations' : informations_model, 
-    }
-    # declare variable
-    
-    return render(request, 'location.html', context)
-
-def location_bookstore(request, bookstore_id):
-
-    bookstore = get_object_or_404(Bookstore, pk=bookstore_id)
-    bookstore_model = Bookstore.objects.all()
-    # insert model information to use in location_bookstore.html
-
-    """ city_address_of_bookstore_을지로_model = bookstore_model.filter(city_address_of_bookstore='을지로')
-    city_address_of_bookstore_망원동_model = bookstore_model.filter(city_address_of_bookstore='망원동')
-    # to list city address of bookstore """
-    # 사용 안합니다
-
-    context = {
-        'bookstores' : bookstore, 
-        'bookstore' : bookstore_model
-    }
-    # declare variable
-
-    return render(request, 'location_bookstore.html', context)
-
-def result(request):
-    bookstoreinfo = Bookstore.objects.all()
-    query = request.GET.get('query','') 
-    search_type = request.GET.get('type','')
-    if query:
-        if search_type == 'all':
-            bookstoreinfo = bookstoreinfo.filter(Q(name__icontains=query)| Q(city_address_of_bookstore__city__icontains=query) | Q(trait__traits__icontains=query)|Q(bookstore_information__icontains=query))
-        elif search_type == 'name':
-            bookstoreinfo = bookstoreinfo.filter(name__icontains=query)
-        elif search_type == 'city':
-            bookstoreinfo = bookstoreinfo.filter(city_address_of_bookstore__city__icontains=query)
-        elif search_type == 'trait':
-            bookstoreinfo = bookstoreinfo.filter(trait__traits__icontains=query)
-        elif search_type == 'info':
-            bookstoreinfo = bookstoreinfo.filter(bookstore_information__icontains=query)
-    return render(request, 'result.html',{'bookstoreinfo':bookstoreinfo , 'query':query})
+        return HttpResponseRedirect(reverse_lazy('community', context)) """
