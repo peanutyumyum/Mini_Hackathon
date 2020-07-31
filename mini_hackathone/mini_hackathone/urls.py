@@ -25,15 +25,16 @@ app_name = 'dongnaechekbang'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',dongnaechekbang.views.home, name='home'),
-    path('search/',dongnaechekbang.views.search, name='search'),
     path('location/', views.location, name="location"),
+    path('location/<int:bookstore_id>', views.location_bookstore, name="bookstore"),
+    path('search/',dongnaechekbang.views.search, name='search'),
+    path('search/result/',dongnaechekbang.views.result, name='result'),
     path('community',dongnaechekbang.views.community.as_view(), name='community'),
     path('community_view<pk>',dongnaechekbang.views.community_view.as_view(),name="community_view"),
     path('community_delete/<pk>',dongnaechekbang.views.community_delete.as_view(),name="community_delete"),
     path('community_update/<pk>',dongnaechekbang.views.community_update.as_view(),name="community_update"),
     path('community_write',dongnaechekbang.views.community_write.as_view(),name='community_write'),
     path('comment_write/<int:pk>',dongnaechekbang.views.comment_write,name='comment_write'),
-    path('location/<int:bookstore_id>', views.location_bookstore, name="bookstore"),
 ]
 
 if settings.DEBUG:

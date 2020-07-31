@@ -1,0 +1,56 @@
+{% load static %}
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SEARCH RESULT </title>
+    <link rel='stylesheet' href="{% static 'result.css' %}">
+</head>
+<body>
+     <div class='container'>
+         <div class='headbox'>
+            <div class='homebox'>
+                <a href="{% url 'search' %}"> HoME </a>
+            </div>
+            <div class='logo'>
+                <a href="{% url 'search' %}"> 골목책방 </a>
+                <div class="searchbox">
+                <form action = "{% url 'result' %}" method = 'GET' >
+                    <div class="selectbox">
+                        <select id=type>
+                            <option value="all">전체 </option>
+                            <option value="name">서점</option>
+                            <option value="city">지역</option>
+                            <option value="info">서점 정보</option>
+                            <option value="trait">책 이름</option>
+                        </select>
+                    </div>
+                    <input class="input_box" type="text" name="query" value="{{query}}" placeholder=" 검색어를 입력해주세요 !">
+                    <button id="imgbutton" type="submit" value=""> 검색 </button>
+                </form>
+                </div>
+     
+            </div>
+         </div>
+
+         <div class="contentbox">
+             <div class="searchhead">
+                "{{query}}"에 대한 결과는 다음과 같습니다.
+             </div>
+             <br>
+            <div class="displayblock">
+                {% for post in bookstoreinfo %}
+                <div class='searchresult'>
+                <div class='list'> <img src="{{post.bookstore_image.url}}" width="130px" height="100px"> &nbsp; &nbsp; </div>
+                <div class='list2'> <h3>서점 이름:</h3> <p> {{post.name}}</p>  &nbsp;  &nbsp; </div>
+                <div class='list2'> <h3>지역:</h3> <p> {{post.city_address_of_bookstore}}</p>  &nbsp;  &nbsp; </div>
+                <a id="more" href="{{'#'}}"> <img src="https://user-images.githubusercontent.com/63120934/89040290-7fb30480-d37e-11ea-8ae3-c18c59c39adf.png" width="30px" height="30px"> </a>
+                </div>
+                {% endfor %}  
+            </div>
+         </div>
+     </div>
+</body>
+</html>
