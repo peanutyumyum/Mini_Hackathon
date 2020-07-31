@@ -15,7 +15,11 @@ class Bookstore(models.Model):
     specific_address = models.TextField() # location of bookstore in specific scale
     trait = models.ForeignKey(Trait, on_delete=models.CASCADE)# trait of bookstore
     bookstore_information = models.TextField() # summary about bookstore
-    bookstore_image = models.ImageField(upload_to="image", blank=True)
+    bookstore_image1 = models.ImageField(upload_to="image", blank=True)
+    bookstore_image2 = models.ImageField(upload_to="image", blank=True)
+    bookstore_image3 = models.ImageField(upload_to="image", blank=True)
+    bookstore_image4 = models.ImageField(upload_to="image", blank=True)
+
     def __str__(self):
         return self.name
     

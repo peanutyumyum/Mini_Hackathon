@@ -9,37 +9,43 @@
     <title>Independent Book Store</title>
 </head>
 <body>
-    <div class="all_page">
-        <div class="top_and_bottom_background"></div>
-        <div class="middle_table">
-            <div class="side_background"></div>
-            <div class="container">
-                <div class="title">
-                    
+    <div class="container">
+        <div class="headbox">
+            <p> 골목책방 </p>
+        </div>
+        <div class="leftbox">
+            <div class="information_section">
+                <div class="book_store_name">
+                    {{bookstores.name}}
                 </div>
-                <div class="picture_section">
-                    <div class="picture">
-                        <img src="{{bookstores.bookstore_image.url}}" height="300px" width="300px">
-                    </div>
+                <br>
+                <div class="book_store_specific_address">
+                    {{bookstores.specific_address}} 
+                <br>
+                <div class="book_store_traits">
+                    {{bookstores.trait}}
                 </div>
-                <div class="information_section">
-                    <div class="book_store_name">
-                        {{bookstores.name}}
-                    </div>
-                    <div class="book_store_traits">
-                        {{bookstores.trait}}
-                    </div>
-                    <div class="book_store_specific_address">
-                        {{bookstores.specific_address}}
-                    </div>
-                    <div class="book_store_informations">
-                        {{bookstores.bookstore_information}}
-                    </div>
+                </div>
+                <br>
+                <div class="book_store_informations">
+                    {{bookstores.bookstore_information}}
                 </div>
             </div>
-            <div class="background"></div>
+
         </div>
-        <div class="top_and_bottom_background"></div>
+        <div class="rightbox">
+            <div class="picture_section">
+                <div class="picture">
+                    <img class="pic" src="{{bookstores.bookstore_image1.url}}" height="600px" width="100%">
+                    <img class="pic" src="{{bookstores.bookstore_image2.url}}" height="600px" width="100%">
+                    <img class="pic" src="{{bookstores.bookstore_image3.url}}" height="600px" width="100%">
+                    <img class="pic" src="{{bookstores.bookstore_image4.url}}" height="600px" width="100%">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
+
+

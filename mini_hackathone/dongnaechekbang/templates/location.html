@@ -15,7 +15,7 @@
                 <h1>동네책방과 함께하는 서점들</h1>
             </li>
             <li class="move_navbar">
-                <a href="#">HoME</a>
+                <span href="#">HoME</span>
             </li>
         </ul>
         <br><br><br><br>
@@ -24,7 +24,7 @@
             <div class="bookstore">
                 <a href="{% url 'bookstore' bookstore_list.id %}">{{bookstore_list.name}}</a>
             </div>
-            <br><br>
+            <br><br><br><br>
             {% endfor %}
         </div>
     </div>
