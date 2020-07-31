@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type="text/css" href="../static/location_bookstore.css">
+    <title>Independent Book Store</title>
+</head>
+<body>
+    <div class="all_page">
+        <div class="top_and_bottom_background"></div>
+        <div class="middle_table">
+            <div class="side_background"></div>
+            <div class="container">
+                <div class="title">
+                    
+                </div>
+                <div class="picture_section">
+                    <div class="picture">
+                        <img src="{{bookstores.bookstore_image.url}}" height="300px" width="300px">
+                    </div>
+                </div>
+                <div class="information_section">
+                    <div class="book_store_name">
+                        {{bookstores.name}}
+                    </div>
+                    <div class="book_store_traits">
+                        {{bookstores.trait}}
+                    </div>
+                    <div class="book_store_specific_address">
+                        {{bookstores.specific_address}}
+                    </div>
+                    <div class="book_store_informations">
+                        {{bookstores.bookstore_information}}
+                    </div>
+                </div>
+            </div>
+            <div class="background"></div>
+        </div>
+        <div class="top_and_bottom_background"></div>
+    </div>
+</body>
+</html>

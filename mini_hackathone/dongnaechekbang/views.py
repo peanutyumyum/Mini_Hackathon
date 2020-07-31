@@ -1,58 +1,16 @@
-# from django.shortcuts import render
-# from .models import Blog
-# from django.shortcuts import render, get_object_or_404
-
-# def home(request):
-#     return render(request, 'home.html')
-
-# def location(request):
-#     return render(request, 'location.html')
-
-# def search(request):
-#     return render(request, 'search.html')
-
-# def community(request):
-#     blog_model = Blog.objects.all()
-
-#     context = {
-#         'blog' : blog_model
-#     }
-#     return render(request, 'community.html', context)
-
-# def community_view(request, blog_id):
-#     blog_model = Blog.objects.all()
-#     blog = get_object_or_404(Blog, pk=blog_id)
-    
-
-#     context = {
-#         'blog' : blog,
-#         'blog_model' : blog_model
-#     }
-#     return render(request, 'community_view.html', context)
-
-# def community_delete(request):
-#     return render(request, 'community_delete.html')
-
-# def community_reply(request):
-#     return render(request, 'community_reply.html')
-
-# def community_update(request):
-#     return render(request, 'community_update.html')
 
 
-
-# def community_write(request):
-#     return render(request, 'community_write.html')
-
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .models import Blog
-from django.shortcuts import get_object_or_404
+from .models import Blog, Bookstore, Evaluation_about_bookstore, Informations
+# import model data
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q
+
+# Create your views here.
 
 def home(request):
     return render(request, 'home.html')
@@ -108,3 +66,38 @@ def comment_write(request, post_pk):
 
         Comment.objects.create(post=post, comment_write=writer,comment_contents=content)
         return HttpResponseRedirect(reverse_lazy('community', context))
+
+
+def location(request):
+    bookstore_model = Bookstore.objects.all()
+    evaluation_about_bookstore_model = Evaluation_about_bookstore.objects.all()
+    informations_model = Informations.objects.all()
+    # insert model information to use in location.html
+
+    context = {
+        'bookstore' : bookstore_model, 
+        'evaluation_about_bookstore' : evaluation_about_bookstore_model, 
+        'informations' : informations_model, 
+    }
+    # declare variable
+    
+    return render(request, 'location.html', context)
+
+def location_bookstore(request, bookstore_id):
+
+    bookstore = get_object_or_404(Bookstore, pk=bookstore_id)
+    bookstore_model = Bookstore.objects.all()
+    # insert model information to use in location_bookstore.html
+
+    """ city_address_of_bookstore_을지로_model = bookstore_model.filter(city_address_of_bookstore='을지로')
+    city_address_of_bookstore_망원동_model = bookstore_model.filter(city_address_of_bookstore='망원동')
+    # to list city address of bookstore """
+    # 사용 안합니다
+
+    context = {
+        'bookstores' : bookstore, 
+        'bookstore' : bookstore_model
+    }
+    # declare variable
+
+    return render(request, 'location_bookstore.html', context)
