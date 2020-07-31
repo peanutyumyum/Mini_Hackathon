@@ -50,22 +50,22 @@ def location_bookstore(request, bookstore_id):
 def search(request):
     return render(request, 'search.html')
 
-""" def result(request):
+def result(request):
     bookstoreinfo = Bookstore.objects.all()
     query = request.GET.get('query','') 
     search_type = request.GET.get('type','')
     if query:
         if search_type == 'all':
-            bookstoreinfo = bookstoreinfo.filter(Q(name__icontains=query)| Q(city_address_of_bookstore__city__icontains=query) | Q(trait__traits__icontains=query)|Q(bookstore_information__icontains=query))
+            bookstoreinfo = bookstoreinfo.filter(Q(name__icontains=query)| Q(city_address_of_bookstore__icontains=query) | Q(trait__icontains=query)|Q(bookstore_information__icontains=query))
         elif search_type == 'name':
             bookstoreinfo = bookstoreinfo.filter(name__icontains=query)
-        elif search_type == 'city':
-            bookstoreinfo = bookstoreinfo.filter(city_address_of_bookstore__city__icontains=query)
+        elif search_type == 'city_address_of_bookstore':
+            bookstoreinfo = bookstoreinfo.filter(city_address_of_bookstore__icontains=query)
         elif search_type == 'trait':
-            bookstoreinfo = bookstoreinfo.filter(trait__traits__icontains=query)
-        elif search_type == 'info':
+            bookstoreinfo = bookstoreinfo.filter(trait__icontains=query)
+        elif search_type == 'bookstore_information':
             bookstoreinfo = bookstoreinfo.filter(bookstore_information__icontains=query)
-    return render(request, 'result.html',{'bookstoreinfo':bookstoreinfo , 'query':query}) """
+    return render(request, 'result.html',{'bookstoreinfo':bookstoreinfo , 'query':query})
 
 class community(ListView):
     template_name = 'community.html'
@@ -102,7 +102,7 @@ class community_write(CreateView):
 
         return HttpResponseRedirect(self.request.POST.get('next','/'))
 
-""" def comment_write(request, post_pk):
+def comment_write(request, post_pk):
     if request.method == 'POST':
         post=get_object_or_404(Blog, pk=post_pk)
         content=request.POST.get('comment_contents')
@@ -111,4 +111,4 @@ class community_write(CreateView):
         }
 
         Comment.objects.create(post=post, comment_write=writer,comment_contents=content)
-        return HttpResponseRedirect(reverse_lazy('community', context)) """
+        return HttpResponseRedirect(reverse_lazy('community', context))
