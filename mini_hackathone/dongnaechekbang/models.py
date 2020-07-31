@@ -15,6 +15,7 @@ class bookstore(models.Model):
     specific_address = models.TextField() # location of bookstore in specific scale
     trait = models.ForeignKey(trait, on_delete=models.CASCADE) # trait of bookstore
     bookstore_information = models.TextField() # summary about bookstore
+    bookstore_image = models.ImageField(upload_to="image", blank=True) # relevant image of bookstore
         
     #  class evaluation_about_bookstore(models.Manager):
     #      objects = models.Manager()
@@ -22,10 +23,7 @@ class bookstore(models.Model):
     #      comment_about_bookstore_with_text_ = models.TextField() # utility of comments, user can evaluate with text
     #      #comment_about_bookstore_with_image = models.ImageField(upload_to="image", blank=True) # utility of comments, user can upload image
 
-class informations(models.Model):
-    objects = models.Manager()
-    bookstore = models.ForeignKey(bookstore, on_delete=models.CASCADE)
-    bookstore_image = models.ImageField(upload_to="image", blank=True) # relevant image of bookstore
+
 
 
     #  class bookstore_event(models.Model):

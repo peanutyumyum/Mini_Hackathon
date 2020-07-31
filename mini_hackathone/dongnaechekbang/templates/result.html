@@ -1,6 +1,5 @@
 {% load static %}
     
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,19 +40,15 @@
                 "{{query}}"에 대한 결과는 다음과 같습니다.
              </div>
              <br>
-            <div class='searchresult'>
-                {% for z in bookstoreinfo2 %}
-                 <div class='list'> <img src="{{z.bookstore_image.url}}" width="130px" height="100px"> &nbsp; &nbsp; </div> 
-                 {% endfor %}
-                 
+            <div class="displayblock">
                 {% for post in bookstoreinfo %}
-                 <div class='list2'> <h3>서점 이름:</h3> <p> {{post.name}}</p>  &nbsp;  &nbsp; </div>
-                 <div class='list2'> <h3>지역:</h3> <p> {{post.city_address_of_bookstore}}</p>  &nbsp;  &nbsp; </div>
-                 <a id="more" href="{{'#'}}"> More </a> 
-                 {% endfor %}
-                 
-                 
-                 
+                <div class='searchresult'>
+                <div class='list'> <img src="{{post.bookstore_image.url}}" width="130px" height="100px"> &nbsp; &nbsp; </div>
+                <div class='list2'> <h3>서점 이름:</h3> <p> {{post.name}}</p>  &nbsp;  &nbsp; </div>
+                <div class='list2'> <h3>지역:</h3> <p> {{post.city_address_of_bookstore}}</p>  &nbsp;  &nbsp; </div>
+                <a id="more" href="{{'#'}}"> <img src="https://user-images.githubusercontent.com/63120934/89040290-7fb30480-d37e-11ea-8ae3-c18c59c39adf.png" width="30px" height="30px"> </a>
+                </div>
+                {% endfor %}  
             </div>
          </div>
      </div>

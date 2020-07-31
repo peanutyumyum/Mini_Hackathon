@@ -38,6 +38,7 @@ a { text-decoration: none; }
     margin-left: 5%;
     position: absolute;
     top: 21%;
+    display: block;
 }
 .searchhead{
     padding-left: 30px;
@@ -51,6 +52,7 @@ a { text-decoration: none; }
     display: flex;
     flex-direction: row;
     font-size: 18px;
+    padding-bottom: 40px;
 }
 .list{
     display: flex;
@@ -107,6 +109,8 @@ img{
 }
 #more{
     margin-left: 20%;
-    margin-top: 5.5%;
-    font-weight: bold;
+    margin-top: 2%;
+}
+.displayblock{
+    display: block;
 }
