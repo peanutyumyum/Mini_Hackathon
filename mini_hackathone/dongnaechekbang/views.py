@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
-from .models import bookstore, city, trait
+from .models import bookstore, city, trait, informations
 
 def search(request):
     return render (request, 'search.html')
@@ -20,4 +20,6 @@ def result(request):
             bookstoreinfo = bookstoreinfo.filter(trait__traits__icontains=query)
         elif search_type == 'info':
             bookstoreinfo = bookstoreinfo.filter(bookstore_information__icontains=query)
-    return render(request, 'result.html',{'bookstoreinfo':bookstoreinfo , 'query':query,})
+    bookstoreinfo2 = informations.objects.all()
+    return render(request, 'result.html',{'bookstoreinfo':bookstoreinfo , 'query':query,'bookstoreinfo2':bookstoreinfo2})
+

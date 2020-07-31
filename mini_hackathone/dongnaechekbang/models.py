@@ -22,11 +22,10 @@ class bookstore(models.Model):
     #      comment_about_bookstore_with_text_ = models.TextField() # utility of comments, user can evaluate with text
     #      #comment_about_bookstore_with_image = models.ImageField(upload_to="image", blank=True) # utility of comments, user can upload image
 
-
-    #  class informations(models.Model):
-    #      objects = models.Manager()
-    #      bookstore = models.ForeignKey(bookstore, on_delete=models.CASCADE)
-    #      bookstore_image = models.ImageField(upload_to="image", blank=True) # relevant image of bookstore
+class informations(models.Model):
+    objects = models.Manager()
+    bookstore = models.ForeignKey(bookstore, on_delete=models.CASCADE)
+    bookstore_image = models.ImageField(upload_to="image", blank=True) # relevant image of bookstore
 
 
     #  class bookstore_event(models.Model):
