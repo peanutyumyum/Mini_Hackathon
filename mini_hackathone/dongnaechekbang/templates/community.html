@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 목록</title>
+</head>
+
+<body>
+	<!-- {% for blog_list in blog %}
+		<a href="{% url 'community_view' blog_list.id %}">{{blog_list.title}}</a><br>
+		{{blog_list.author}}
+	{% endfor %} -->
+	<!-- <div class = "first">
+        {% for i in blog_list %}
+        <a href="{% url 'community_view' i.id %}">
+            <h1>글 제목 - {{i.title}}</h1>
+            <p>내용 - {{i.text}}</p><p>글쓴이 : {{i.author}}</p><p>작성 날짜 : {{i.time}}</p>
+		</a>
+    	<br>
+    	{% endfor %}
+    </div>
+    <div class="second">
+        <a href="{% url 'community_write' %}">새글쓰기</a>
+	</div> -->
+	<table class="table">
+		<thread>
+			<tr>
+				<th>No.</th>
+				<th>Title</th>
+				<th>Writer</th>
+				<th>Date</th>
+				<th>Hits</th>
+			</tr>
+		</thread>
+		<tbody>
+			{% for i in blog_list %}
+			<tr>
+				<td>{{i.num}}</td>
+				<td><a href="{% url 'community_view' i.id %}">{{i.title}}</a>({{i.comments.count}})</td>
+				<td>{{i.author}}</td>
+				<td>{{i.time}}</td>
+				<td>{{i.hit}}</td>
+				<div style="margin-left: 20px;margin-top: 20px;">
+					<h4>Contents</h4>
+					{{post.update_counter}}
+					{{post.post_contents}}
+				</div>
+
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div class="second">
+        <a href="{% url 'community_write' %}">새글쓰기</a>
+	</div>
+
+</body>
+</html>

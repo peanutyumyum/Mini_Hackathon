@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 삭제하기</title>
+
+    <script type="text/javascript">
+        function move(url) {
+            location.href=url;
+        }
+        function CommunityDeleteCheck() {
+            var form = document.CommunityDeleteForm;
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+	<center>
+	<br><br>
+	<table width=50% cellspacing=0 cellpadding=3>
+ 		<tr>
+			<td height=21 align=center>작성자의 비밀번호를 입력해 주세요.</td>
+		</tr>
+	</table>
+	
+	<table width=70% cellspacing=0 cellpadding=2>
+		<form name="CommunityDeleteForm" method="post" action="community_delete_action.html" onsubmit="return CommunityDeleteCheck();" >
+ 	<tr>
+		<td align=center>
+		<table align=center border=0 width=91%>
+    <tr> 
+     	<td align=center>  
+	  	<input type=password name="password" size=17 maxlength=15>
+	 	</td> 
+    </tr>
+    <tr>
+		<td><hr size=1 color=#eeeeee></td>
+	</tr>
+    <tr>
+		<td align=center>
+		<input type="submit" value="삭제완료" >
+		<input type=button value="뒤로" onClick="history.go(-1)">
+		</td>
+	</tr> 
+	</table>
+	</td>
+	</tr>
+	</form> 
+	</table>
+	</center>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method='POST'>
+        {% csrf_token %}
+        <h1>글을 삭제하실건가요?</h1>
+        <h2>글 제목 : {{blog.title}}</h2>
+        <h3>내용 : {{blog.text}}</h3>
+        <input type = 'submit' value='삭제'>
+    </form>
+    <a href="{% url 'community_view' blog.id %}">돌아가기</a>
+</body>
+</html>
