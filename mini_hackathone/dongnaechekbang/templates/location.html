@@ -1,11 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type="text/css" href="../static/location.css">
     <title>Independent Book Store</title>
 </head>
 <body>
-    
+    <div class="container"><br>
+        <ul class="navbar">
+            <li class="title">
+                <h1>동네책방과 함께하는 서점들</h1>
+            </li>
+            <li class="move_navbar">
+                <a href="#">HoME</a>
+            </li>
+        </ul>
+        <br><br><br><br>
+        <div class="content">
+            {% for bookstore_list in bookstore %}
+            <div class="bookstore">
+                <a href="{% url 'bookstore' bookstore_list.id %}">{{bookstore_list.name}}</a>
+            </div>
+            <br><br>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

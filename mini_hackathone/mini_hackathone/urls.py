@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from dongnaechekbang import views
+import dongnaechekbang.views
+
+app_name = 'dongnaechekbang'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('location/', views.location, name="location"),
+    path('location/<int:bookstore_id>', views.location_bookstore, name="bookstore")
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
