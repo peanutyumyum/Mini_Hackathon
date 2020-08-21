@@ -20,11 +20,12 @@ from django.conf.urls.static import static
 from dongnaechekbang import views
 import dongnaechekbang.views
 
+
 app_name = 'dongnaechekbang'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',dongnaechekbang.views.home, name='home'),
+    path('', views.home, name='home'),
     path('location/', views.location, name="location"),
     path('location/<int:bookstore_id>', views.location_bookstore, name="bookstore"),
     path('search/',dongnaechekbang.views.search, name='search'),
